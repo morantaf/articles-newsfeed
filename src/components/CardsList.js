@@ -17,7 +17,6 @@ class CardsList extends Component {
 
   render() {
     const articles = this.props.articles;
-    console.log(articles);
 
     if (!articles) {
       return <p>Loading...</p>;
