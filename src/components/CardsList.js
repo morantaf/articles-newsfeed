@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getArticles } from "../store/actions/news";
+import Card from "./Cards";
+import styled from "styled-components";
+
+const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3% 0 0 3%;
+`;
 
 class CardsList extends Component {
   componentDidMount() {
@@ -8,13 +16,25 @@ class CardsList extends Component {
   }
 
   render() {
-    console.log(this.props.news);
-    return <div>card component</div>;
+    const articles = this.props.articles;
+    console.log(articles);
+
+    if (!articles) {
+      return <p>Loading...</p>;
+    } else {
+      return (
+        <CardsContainer>
+          {articles.map((article) => {
+            return <Card details={article} />;
+          })}
+        </CardsContainer>
+      );
+    }
   }
 }
 
 const mapStateToProps = (state) => ({
-  news: state.news,
+  articles: state.news.articles,
 });
 
 const mapDispatchToProps = {
