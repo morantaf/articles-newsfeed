@@ -1,9 +1,11 @@
-const initialState = {};
+const initialState = {
+  articles: [],
+};
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case typeName:
-      return { ...state, ...payload };
+    case "ALL_NEWS":
+      return { ...state, articles: payload.articles };
 
     default:
       return state;
