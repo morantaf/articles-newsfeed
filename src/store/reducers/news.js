@@ -4,8 +4,8 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case "ALL_NEWS":
-      return { ...state, articles: payload.articles };
+    case "ALL_ARTICLES":
+      return { ...state, articles: payload };
 
     default:
       return state;

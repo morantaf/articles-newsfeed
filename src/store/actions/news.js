@@ -13,7 +13,7 @@ export const getArticles = () => async (dispatch) => {
   try {
     const response = await request.get(`${baseUrl}`);
 
-    const articles = response.body;
+    const articles = response.body.articles;
 
     const action = allArticles(articles);
 
